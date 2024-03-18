@@ -55,8 +55,17 @@ void Bullet::move(){
     }
     //field.setPos(field.x()+10,field.y());
     //setPos(enemySingletonInstance11.player22->x(),enemySingletonInstance11.player22->y()+10);
-    qDebug()<<"x2 of ball descendant is"<<x()<<"and it is ordered de quitter from "<<enemySingletonInstance11.player22->x();
-    setPos(x(),y()-3);
+    //qDebug()<<"x2 of ball descendant is"<<x()<<"and it is ordered de quitter from "<<enemySingletonInstance11.player22->x();
+    //setPos(x(),y()-3);
+    if(y()<230)
+    {
+        setPos(x(),y()-3);
+
+    }
+    else{
+        setPos(x(),y()-20);
+
+    }
     if (pos().y() + rect().height() < 0){
         scene()->removeItem(this);
         delete this;
