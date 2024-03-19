@@ -29,9 +29,19 @@ int main(int argc, char *argv[]){
     // Call member function of the singleton instance
     //enemySingletonInstance2.doSomething();
     QApplication a(argc, argv);
+    //QGraphicsTextItem *textItem = new QGraphicsTextItem("Initial Text");
+    //textItem->setPos(100, 100); // Example position (100, 100), adjust as needed
+
+    // Add the text item to the scene
+
 
     // create a scene
     QGraphicsScene * scene = new QGraphicsScene();
+    //QGraphicsTextItem *textItem = new QGraphicsTextItem("Initial Text");
+    //textItem->setPos(100, 100); // Example position (100, 100), adjust as needed
+    //scene->addItem(textItem);
+    // Add the text item to the scene
+    //scene->addItem(textItem);
     //QGraphicsScene * scene = new QGraphicsScene();
     //scene->addItem(enemySingletonInstance2);
     //EnemySingleton2 * player55 = new MyRect();
@@ -45,6 +55,7 @@ int main(int argc, char *argv[]){
     //enemySingletonInstance2.doSomething();
     // add the item to the scene
     //scene->addItem(player);
+    //enemySingletonInstance2.doSomething();
     enemySingletonInstance2.start();
     //enemySingletonInstance3.start();
     //enemySingletonInstance2.wait();
@@ -60,6 +71,8 @@ int main(int argc, char *argv[]){
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     // show the view
+    //int po=0;
+    qDebug()<<"pooooooooooooooooooo";
     view->show();
     view->setFixedSize(1400,1000);
     scene->setSceneRect(10,10,1100,700);
@@ -76,6 +89,8 @@ int main(int argc, char *argv[]){
     //Enemy * enemy = new Enemy();
     //scene()->addItem(enemy);
     //delay(2000);
+    qDebug()<<"vawwwwwwwwwwwwwwwwwwwww";
 
     return a.exec();
 }
+

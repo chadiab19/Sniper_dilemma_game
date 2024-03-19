@@ -1,11 +1,13 @@
 #include "enemysingleton.hpp"
 #include "enemysingleton2.hpp"
+
 #include <QDebug>
 #include <QKeyEvent>
 #include <QGraphicsScene>
 #include <QTimer>
 #include <QKeyEvent>
 #include <QLabel>
+
 //#include <QGraphicsScene>
 // Initialize the static instance of EnemySingleton
 EnemySingleton& EnemySingleton::getInstance() {
@@ -36,31 +38,47 @@ void EnemySingleton::run(){
     enemySingletonInstance22.player22->setFlag(QGraphicsItem::ItemIsFocusable);
 
     enemySingletonInstance22.player22->setFocus();
+
     qDebug()<<"player 2 playing";
     enemySingletonInstance22.player22->isblocked=true;
     this->isblocked=false;
     n++;
     qDebug()<<"the new number of n is"<<n;
-
+    //score = new Score();
+    //scene()->addItem(score);
     //isblocked=true;
     QThread::sleep(15);
 
-    if(n==15){
+    if(n==5){
         qDebug()<<"stopped";
         QCoreApplication::exit();
     }
+    //scoreLabel = new QLabel("S " );
+    //scoreLabel = new QLabel("Score: 0"+ QString::number(k));
+    //scoreLabel->setGeometry(10, 10, 100, 30); // Set position and size of the label
+    //scoreLabel->setText("Score: " + QString::number(n));
+    //scoreLabel->show();
+    //score = new Score();
+
+    //Score = new Score();
+    //scene()->addItem(score);
+    //po++;
+
+    //scene()->addItem(textField);
+    //textItem->setPlainText("time elapsed"+n+"seconds");
     //EnemySingleton& enemySingletonInstance11 = EnemySingleton::getInstance();
     enemySingletonInstance22.start();
     //enemySingletonInstance11.player22->setFlag(QGraphicsItem::ItemIsFocusable);
     //enemySingletonInstance11.player22->setFocus();*/
 
     /*isblocked=true;
-    qDebug()<<"finished21";
+    //qDebug()<<"finished21";
     QThread::sleep(10);*/
 
 }
 EnemySingleton::EnemySingleton() {
-    player22->setRect(10,540,100,100);
+    player22->setRect(5,560,100,100);
+    //textField->setPlainText("the new");
     //player22->pos();
     //QPoint childWidgetPos = player22->pos();
 
@@ -102,25 +120,31 @@ EnemySingleton::~EnemySingleton() {
 
 // Some member function of the singleton class
 void EnemySingleton::doSomething() {
-    a=a+1;
+    //a=a+1;
     //player22->setRect(55,50,100,100);
-    EnemySingleton2& enemySingletonInstance22 = EnemySingleton2::getInstance();
+    //EnemySingleton2& enemySingletonInstance22 = EnemySingleton2::getInstance();
     /*enemySingletonInstance22.player22->setFlag(QGraphicsItem::ItemIsFocusable);
 
     enemySingletonInstance22.player22->setFocus();*/
     //qDebug()<<"finished1";
 
     qDebug()<<"zz";
-    EnemySingleton& enemySingletonInstance11 = EnemySingleton::getInstance();
-    enemySingletonInstance22.player22->setFlag(QGraphicsItem::ItemIsFocusable);
-    enemySingletonInstance22.player22->setFocus();
-    QThread::sleep(10);
-    //enemySingletonInstance22.doSomething();
-    qDebug()<<"zz22";
+    //scoreLabel = new QLabel()
+    /*scoreLabel = new QLabel("Score: 0");
+    scoreLabel->setGeometry(10, 10, 100, 30); // Set position and size of the label
+    scoreLabel->show();*/
+    //score = new Score();
+    //scene()->addItem(score);
     //EnemySingleton& enemySingletonInstance11 = EnemySingleton::getInstance();
-    enemySingletonInstance11.player22->setFlag(QGraphicsItem::ItemIsFocusable);
-    enemySingletonInstance11.player22->setFocus();
-    QThread::sleep(10);
+    //enemySingletonInstance22.player22->setFlag(QGraphicsItem::ItemIsFocusable);
+    //enemySingletonInstance22.player22->setFocus();
+    //QThread::sleep(10);
+    //enemySingletonInstance22.doSomething();
+    //qDebug()<<"zz22";
+    //EnemySingleton& enemySingletonInstance11 = EnemySingleton::getInstance();
+    //enemySingletonInstance11.player22->setFlag(QGraphicsItem::ItemIsFocusable);
+    //enemySingletonInstance11.player22->setFocus();
+    //QThread::sleep(10);
     //QTimer * timer = new QTimer();
     //connect(timer,SIGNAL(timeout()),this,SLOT(move()));
 

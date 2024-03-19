@@ -3,12 +3,14 @@
 
 #include <QGraphicsRectItem>
 #include <QObject>
-
+#include "Score.hpp"
 class Bullet: public QObject,public QGraphicsRectItem{
     Q_OBJECT
 public:
     Bullet();
+    Score * score;
     bool isright = true;
+    int l=2;
 public slots:
     void move();
 };

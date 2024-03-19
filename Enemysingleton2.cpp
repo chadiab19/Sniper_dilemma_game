@@ -62,7 +62,7 @@ void EnemySingleton2::keyPressEvent(QKeyEvent *event)  {
 }
 
 EnemySingleton2::EnemySingleton2() {
-    player22->setRect(10,-30,100,100);
+    player22->setRect(5,-80,100,100);
 
 
     //std::cout << "EnemySingleton instance created!" << std::endl;

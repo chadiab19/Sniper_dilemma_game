@@ -16,6 +16,7 @@ SOURCES += \
     Enemysingleton.cpp \
     Enemysingleton2.cpp \
     MyRect.cpp \
+    Score.cpp \
     main.cpp \
     mainwindow.cpp
 
@@ -25,6 +26,7 @@ HEADERS += \
     Bulletoffield.h \
     Enemy.h \
     MyRect.h \
+    Score.hpp \
     enemysingleton.hpp \
     enemysingleton2.hpp \
     mainwindow.h

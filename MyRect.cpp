@@ -1,3 +1,5 @@
+
+
 #include "MyRect.h"
 #include <QKeyEvent>
 #include <QDebug>
@@ -7,6 +9,7 @@
 #include <QTimer>
 #include "Bulletennemy.h"
 #include "Bulletoffield.h"
+#include "Score.hpp"
 //Bulletennemy
 void MyRect::move(){
     QList<QGraphicsItem *> colliding_items = collidingItems();
@@ -64,7 +67,7 @@ void MyRect::keyPressEvent(QKeyEvent *event){
         if (pos().x() + 100 < 800)
 
             setPos(x()+25,y());
-            qDebug()<<"the new position is"<<y();
+            //qDebug()<<"the new position is"<<y();
 
         //this->x()+=10;
 
@@ -76,6 +79,9 @@ void MyRect::keyPressEvent(QKeyEvent *event){
         bullet2->setPos(this->x(),y()-20);
         qDebug()<<"the position de tirement is"<<y();
         scene()->addItem(bullet2);
+        /*textField->setPos(100,100);
+        textField->setPlainText("the new");
+        scene()->addItem(textField);*/
     }
     else if (event->key() == Qt::Key_Space && isblocked == false){
         // create a bullet
