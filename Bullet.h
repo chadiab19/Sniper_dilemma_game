@@ -9,8 +9,8 @@ class Bullet: public QObject,public QGraphicsRectItem{
 public:
     Bullet();
     Score * score;
-    bool isright = true;
-    int l=2;
+    bool is_right = true;
+    //int l=2;
 public slots:
     void move();
 };

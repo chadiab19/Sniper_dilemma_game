@@ -1,20 +1,20 @@
-#include "Bulletoffield.h"
+#include "Target.h"
 //#include "Enemy.h"
 //#include "enemysingleton.hpp"
 #include <QTimer>
 #include <QDebug>
 #include <QGraphicsScene>
-Bulletoffield& Bulletoffield::getInstance(){
-    static Bulletoffield instance;
+Target& Target::getInstance(){
+    static Target instance;
     return instance;
 
 }
-Bulletoffield::Bulletoffield(){
+Target::Target(){
     setRect(x(),y(),50,10);
     // drew the rect
     //Bulletoffield& enemySingletonInstance22 = Bulletoffield::getInstance();
 }
-Bulletoffield::~Bulletoffield(){
+Target::~Target(){
     // drew the rect
     //Bulletoffield& enemySingletonInstance22 = Bulletoffield::getInstance();
 }
@@ -36,7 +36,7 @@ Bulletoffield::~Bulletoffield(){
     timer->start(50);
 }*/
 
-void Bulletoffield::move(){
+//void Bulletoffield::move(){
     /*QList<QGraphicsItem *> colliding_items = collidingItems();
     for(int i=0,n=colliding_items.size();i< n;++i){
         if(typeid(*(colliding_items[i]))==typeid(Enemy)){
@@ -58,4 +58,4 @@ void Bulletoffield::move(){
         scene()->removeItem(this);
         delete this;
     }*/
-}
+//}

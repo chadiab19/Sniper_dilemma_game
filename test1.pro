@@ -11,25 +11,25 @@ CONFIG += c++17
 SOURCES += \
     Bullet.cpp \
     Bulletennemy.cpp \
-    Bulletoffield.cpp \
     Enemy.cpp \
-    Enemysingleton.cpp \
-    Enemysingleton2.cpp \
     MyRect.cpp \
+    Player1.cpp \
+    Player2.cpp \
     Score.cpp \
+    Target.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     Bullet.h \
     Bulletennemy.h \
-    Bulletoffield.h \
     Enemy.h \
     MyRect.h \
     Score.hpp \
-    enemysingleton.hpp \
-    enemysingleton2.hpp \
-    mainwindow.h
+    Target.h \
+    mainwindow.h \
+    player1.hpp \
+    player2.hpp
 
 FORMS += \
     mainwindow.ui

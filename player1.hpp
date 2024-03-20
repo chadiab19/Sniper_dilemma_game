@@ -1,5 +1,5 @@
-#ifndef ENEMYSINGLETON_HPP
-#define ENEMYSINGLETON_HPP
+#ifndef PLAYER1_H
+#define PLAYER1_H
 
 //#include <iostream>
 #include <QGraphicsRectItem>
@@ -12,17 +12,17 @@
 #include <QLabel>
 //#include <iostream>
 
-class EnemySingleton:public MyRect,public QThread {
+class Player1:public MyRect,public QThread {
 public:
     //QLabel *scoreLabel;
-    int k=0;
+    int points=0;
     int n;
-    int a;
+    //int a;
     // Static member function to access the singleton instance
     //void press();
     MyRect * player22 = new MyRect();
-    void keyPressEvent(QKeyEvent * event) ;
-    static EnemySingleton& getInstance();
+    //9void keyPressEvent(QKeyEvent * event) ;
+    static Player1& getInstance();
 
 
 
@@ -31,19 +31,19 @@ public:
 
 
     // Some member function of the singleton class
-    void doSomething();
+    //void doSomething();
     void run();
     // Delete copy constructor and assignment operator
-    EnemySingleton(const EnemySingleton&) = delete;
-    void operator=(const EnemySingleton&) = delete;
+    Player1(const Player1&) = delete;
+    void operator=(const Player1&) = delete;
 
 private:
-    QGraphicsTextItem *textField;
+    //QGraphicsTextItem *textField;
     // Private constructor to prevent instantiation
-    EnemySingleton();
+    Player1();
     // Private destructor to prevent deletion through pointers
-    ~EnemySingleton();
+    ~Player1();
 };
 
-#endif // ENEMYSINGLETON_HPP
+#endif // PLAYER1_H
 

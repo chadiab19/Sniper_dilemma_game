@@ -1,6 +1,6 @@
-#include "enemysingleton.hpp"
-#include "enemysingleton2.hpp"
-
+#include "player1.hpp"
+#include "player2.hpp"
+#include "Bullet.h"
 #include <QDebug>
 #include <QKeyEvent>
 #include <QGraphicsScene>
@@ -10,8 +10,8 @@
 
 //#include <QGraphicsScene>
 // Initialize the static instance of EnemySingleton
-EnemySingleton& EnemySingleton::getInstance() {
-    static EnemySingleton instance;
+Player1& Player1::getInstance() {
+    static Player1 instance;
     //EnemySingleton * player55 = new EnemySingleton();
     //playe55->setRect(70,70,100,100);
 
@@ -22,28 +22,28 @@ EnemySingleton& EnemySingleton::getInstance() {
     //EnemySingleton * player23 = new EnemySingleton() ;
     return instance;
 }
-void EnemySingleton::keyPressEvent(QKeyEvent *event){
+/*void EnemySingleton::keyPressEvent(QKeyEvent *event){
     if (event->key() == Qt::Key_7){
         if (pos().x() > 0)
             player22->setPos(player22->x()-10,player22->y());
             //setPos(x()-10,y());
-    }}
+    }}*/
 // Private constructor to prevent instantiation
 
-void EnemySingleton::run(){
+void Player1::run(){
 
 
-    qDebug()<<"first";
-    EnemySingleton2& enemySingletonInstance22 = EnemySingleton2::getInstance();
+    //qDebug()<<"first";
+    Player2& enemySingletonInstance22 = Player2::getInstance();
     enemySingletonInstance22.player22->setFlag(QGraphicsItem::ItemIsFocusable);
 
     enemySingletonInstance22.player22->setFocus();
 
-    qDebug()<<"player 2 playing";
-    enemySingletonInstance22.player22->isblocked=true;
-    this->isblocked=false;
+    //qDebug()<<"player 2 playing";
+    enemySingletonInstance22.player22->is_player2=true;
+    this->is_player2=false;
     n++;
-    qDebug()<<"the new number of n is"<<n;
+    //qDebug()<<"the new number of n is"<<n;
     //score = new Score();
     //scene()->addItem(score);
     //isblocked=true;
@@ -76,8 +76,8 @@ void EnemySingleton::run(){
     QThread::sleep(10);*/
 
 }
-EnemySingleton::EnemySingleton() {
-    player22->setRect(5,560,100,100);
+Player1::Player1() {
+    player22->setRect(-5,560,100,100);
     //textField->setPlainText("the new");
     //player22->pos();
     //QPoint childWidgetPos = player22->pos();
@@ -111,7 +111,7 @@ EnemySingleton::EnemySingleton() {
 }*/
 
 // Private destructor to prevent deletion through pointers
-EnemySingleton::~EnemySingleton() {
+Player1::~Player1() {
     //std::cout << "EnemySingleton instance destroyed!" << std::endl;
 }
 /*void EnemySingleton::run() {
@@ -119,7 +119,7 @@ EnemySingleton::~EnemySingleton() {
 }*/
 
 // Some member function of the singleton class
-void EnemySingleton::doSomething() {
+//void EnemySingleton::doSomething() {
     //a=a+1;
     //player22->setRect(55,50,100,100);
     //EnemySingleton2& enemySingletonInstance22 = EnemySingleton2::getInstance();
@@ -128,7 +128,7 @@ void EnemySingleton::doSomething() {
     enemySingletonInstance22.player22->setFocus();*/
     //qDebug()<<"finished1";
 
-    qDebug()<<"zz";
+    //qDebug()<<"zz";
     //scoreLabel = new QLabel()
     /*scoreLabel = new QLabel("Score: 0");
     scoreLabel->setGeometry(10, 10, 100, 30); // Set position and size of the label
@@ -162,4 +162,4 @@ void EnemySingleton::doSomething() {
 
     //}
     //std::cout << "EnemySingleton instance is doing something!" << std::endl;
-}
+//}

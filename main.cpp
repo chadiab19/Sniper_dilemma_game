@@ -5,8 +5,8 @@
 #include <QGraphicsView>
 #include <QTimer>
 #include <QThread>
-#include "enemysingleton.hpp"
-#include "enemysingleton2.hpp"
+#include "player1.hpp"
+#include "player2.hpp"
 //#include <QGraphicsScene>
 /*
 Tutorial Topics:
@@ -16,14 +16,14 @@ Tutorial Topics:
 */
 
 int main(int argc, char *argv[]){
-    EnemySingleton& enemySingletonInstance = EnemySingleton::getInstance();
+    //EnemySingleton& enemySingletonInstance = EnemySingleton::getInstance();
 
     // Call member function of the singleton instance
-    enemySingletonInstance.doSomething();
-    EnemySingleton& enemySingletonInstance2 = EnemySingleton::getInstance();
+    //enemySingletonInstance.doSomething();
+    Player1& enemySingletonInstance2 = Player1::getInstance();
     //enemySingletonInstance2.setRect(50,50,100,100);
 
-    EnemySingleton2& enemySingletonInstance3 = EnemySingleton2::getInstance();
+    Player2& enemySingletonInstance3 = Player2::getInstance();
     //enemySingletonInstance2.setRect(50,50,100,100);
     //enemySingletonInstance3.doSomething();
     // Call member function of the singleton instance
@@ -46,7 +46,7 @@ int main(int argc, char *argv[]){
     //scene->addItem(enemySingletonInstance2);
     //EnemySingleton2 * player55 = new MyRect();
     // create an item to add to the scene
-    MyRect * player = new MyRect();
+    //MyRect * player = new MyRect();
     //enemySingletonInstance3.setRect(70,70,100,100);
     //player->setRect(0,0,100,100); // change the rect from 0x0 (default) to 100x100 pixels
     //scene->addItem(enemySingletonInstance3);
@@ -57,6 +57,8 @@ int main(int argc, char *argv[]){
     //scene->addItem(player);
     //enemySingletonInstance2.doSomething();
     enemySingletonInstance2.start();
+    //enemySingletonInstance2.run22();
+
     //enemySingletonInstance3.start();
     //enemySingletonInstance2.wait();
     //enemySingletonInstance3.wait();
@@ -72,7 +74,7 @@ int main(int argc, char *argv[]){
 
     // show the view
     //int po=0;
-    qDebug()<<"pooooooooooooooooooo";
+    //qDebug()<<"pooooooooooooooooooo";
     view->show();
     view->setFixedSize(1400,1000);
     scene->setSceneRect(10,10,1100,700);
@@ -89,7 +91,7 @@ int main(int argc, char *argv[]){
     //Enemy * enemy = new Enemy();
     //scene()->addItem(enemy);
     //delay(2000);
-    qDebug()<<"vawwwwwwwwwwwwwwwwwwwww";
+    //qDebug()<<"vawwwwwwwwwwwwwwwwwwwww";
 
     return a.exec();
 }

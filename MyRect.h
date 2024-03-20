@@ -14,9 +14,9 @@ class MyRect:public QObject, public QGraphicsRectItem{
 public:
     QTimer * timer = new QTimer();
     //QTimer timer22 = new QTimer();
-    bool isblocked = false;
-    int b;
-    int c;
+    bool is_player2 = false;
+    //int b;
+    //int c;
     void keyPressEvent(QKeyEvent * event) override;
 
 protected:
@@ -25,8 +25,11 @@ protected:
 
 public slots:
     void move();
-    void spawn22();
-    //void QObject::spawn23();
+    //void spawn22();
+    //void QObject::
+
+
+    //spawn23();
 
 
 };

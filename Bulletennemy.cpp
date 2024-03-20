@@ -1,16 +1,16 @@
 #include "Bulletennemy.h"
-#include "Bulletoffield.h"
+#include "Target.h"
 #include "Enemy.h"
-#include "enemysingleton2.hpp"
-#include "enemysingleton.hpp"
+#include "player2.hpp"
+#include "player1.hpp"
 #include "Bullet.h"
 
 #include <QTimer>
 #include <QGraphicsScene>
 Bulletennemy::Bulletennemy(){
     // drew the rect
-    EnemySingleton2& enemySingletonInstance22 = EnemySingleton2::getInstance();
-    enemySingletonInstance22.a++;
+    Player2& enemySingletonInstance22 = Player2::getInstance();
+
 
     setRect(x(),y()+100,10,50);
     //setPos(enemySingletonInstance22.player22->x(),)
@@ -24,8 +24,9 @@ Bulletennemy::Bulletennemy(){
 }
 
 void Bulletennemy::move() {
-    EnemySingleton& enemySingletonInstance11 = EnemySingleton::getInstance();
-    EnemySingleton2& enemySingletonInstance22 = EnemySingleton2::getInstance();
+    Target& field = Target::getInstance();
+    Player1& enemySingletonInstance11 = Player1::getInstance();
+    Player2& enemySingletonInstance22 = Player2::getInstance();
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for(int i=0,n=colliding_items.size();i< n;++i){
         if(typeid(*(colliding_items[i]))==typeid(Bullet)){
@@ -36,15 +37,29 @@ void Bulletennemy::move() {
             return;
 
         }
+        else if(typeid(*(colliding_items[i]))==typeid(Target)){
+            scene()->removeItem(score);
+            enemySingletonInstance22.points=enemySingletonInstance22.points+5;
+            scene()->removeItem(this);
+            delete this;
+            return;
+        }
+        else if(typeid(*(colliding_items[i]))==typeid(MyRect)){
+            enemySingletonInstance22.points=enemySingletonInstance22.points+10;
+            scene()->removeItem(score);
+            scene()->removeItem(this);
+            delete this;
+            return;
+        }
 
     }
-    Bulletoffield& field = Bulletoffield::getInstance();
+
     //qDebug()<<"x of field is"<<field.x();
     if(field.x()>750 || field.x()<-100)
     {
-        field.isright=!field.isright;
+        field.is_right=!field.is_right;
     }
-    if(field.isright){
+    if(field.is_right){
         field.setPos(field.x()+1,field.y());
 
     }
@@ -53,11 +68,11 @@ void Bulletennemy::move() {
 
     }
     // move bullet up
-    if(y()>270)
+    if(y()>275)
     {
-        score->increase(enemySingletonInstance11.k,enemySingletonInstance22.a);
+        score->increase(enemySingletonInstance11.points,enemySingletonInstance22.points);
         scene()->addItem(score);
-        setPos(x(),y()+3);
+        setPos(x(),y()+1);
 
     }
     else{
@@ -65,7 +80,7 @@ void Bulletennemy::move() {
 
     }
     //setPos(x(),y()+3);
-    if (pos().y() + rect().height() < 0){
+    if (pos().y() > 540){
 
         scene()->removeItem(score);
         delete score;

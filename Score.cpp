@@ -3,7 +3,7 @@
 #include <QThread>
 Score::Score(QGraphicsItem *parent): QGraphicsTextItem(parent){
     // initialize the score to 0
-    score = 16;
+    //score = 16;
     this->setPos(-50,-130);
 
     // draw the text
@@ -31,19 +31,7 @@ void Score::increase(int k,int a){
     //setFont(QFont("times",16));
 
 }
-void Score::vider(){
-    //QThread::sleep(3);
-    score++;
-    //setPlainText(QString("22: ") + QString::number(k)); // Score: 0
 
-
-    //setPlainText(QString(""));
-    setPlainText(QString("") );
-
-    setDefaultTextColor(Qt::blue);
-    //setFont(QFont("times",16));
-
-}
 /*Score::Score(QGraphicsItem *parent): QGraphicsTextItem(parent){
     score = 0;
 

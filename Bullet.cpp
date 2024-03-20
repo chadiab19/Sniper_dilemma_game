@@ -1,26 +1,27 @@
 #include "Bullet.h"
-#include "Bulletoffield.h"
+#include "Bulletennemy.h"
+#include "Target.h"
 #include "Enemy.h"
-#include "enemysingleton.hpp"
-#include "enemysingleton2.hpp"
+#include "player1.hpp"
+#include "player2.hpp"
 #include <QTimer>
 #include <QDebug>
 #include <QGraphicsScene>
 Bullet::Bullet(){
     // drew the rect0
-    EnemySingleton& enemySingletonInstance11 = EnemySingleton::getInstance();
+    Player1& enemySingletonInstance11 = Player1::getInstance();
 
 
 
     //score->k=score->k+1;
 
 
-    qDebug()<<"the new value of k is"<<enemySingletonInstance11.k;
+    //qDebug()<<"the new value of k is"<<enemySingletonInstance11.k;
     //score->delete()
 
-    Bulletoffield& field = Bulletoffield::getInstance();
+    Target& field = Target::getInstance();
     setRect(x(),y(),10,50);
-    enemySingletonInstance11.k=enemySingletonInstance11.k+1;
+    enemySingletonInstance11.points=enemySingletonInstance11.points+1;
 
     //setRect(x()-20,y()-20,10,50);
     //qDebug() << "Child widget position relative to its parent widget: " << enemySingletonInstance11.player22->pos();
@@ -37,29 +38,52 @@ Bullet::Bullet(){
 
 void Bullet::move(){
 
+    Player1& enemySingletonInstance11 = Player1::getInstance();
+    Player2& enemySingletonInstance22 = Player2::getInstance();
+    Target& field = Target::getInstance();
 
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for(int i=0,n=colliding_items.size();i< n;++i){
-        if(typeid(*(colliding_items[i]))==typeid(Enemy)){
-            /*scene()->removeItem(colliding_items[i]);
-            scene()->removeItem(this);
-            delete colliding_items[i];
-            delete this;
-            return;*/
 
+
+        /*if(typeid(*(colliding_items[i]))==typeid(Bullet)){
+            //scene()->removeItem(score);
+            //enemySingletonInstance11.k=enemySingletonInstance11.k+5;
+
+            scene()->removeItem(this);
+
+            delete this;
+            scene()->removeItem(colliding_items[i]);
+
+            delete colliding_items[i];
+            return;
+
+        }*/
+
+        if(typeid(*(colliding_items[i]))==typeid(Target)){
+            scene()->removeItem(score);
+            enemySingletonInstance11.points=enemySingletonInstance11.points+5;
+            scene()->removeItem(this);
+            delete this;
+            return;
+        }
+        else if(typeid(*(colliding_items[i]))==typeid(MyRect)){
+            enemySingletonInstance11.points=enemySingletonInstance11.points+10;
+            scene()->removeItem(score);
+            scene()->removeItem(this);
+            delete this;
+            return;
         }
 
     }
     // move bullet up
-    EnemySingleton& enemySingletonInstance11 = EnemySingleton::getInstance();
-    EnemySingleton2& enemySingletonInstance22 = EnemySingleton2::getInstance();
-    Bulletoffield& field = Bulletoffield::getInstance();
+
     //qDebug()<<"x of field is"<<field.x();
     if(field.x()>750 || field.x()<-100)
     {
-        field.isright=!field.isright;
+        field.is_right=!field.is_right;
     }
-    if(field.isright){
+    if(field.is_right){
         field.setPos(field.x()+1,field.y());
 
     }
@@ -82,12 +106,13 @@ void Bullet::move(){
     //setPos(enemySingletonInstance11.player22->x(),enemySingletonInstance11.player22->y()+10);
     //qDebug()<<"x2 of ball descendant is"<<x()<<"and it is ordered de quitter from "<<enemySingletonInstance11.player22->x();
     //setPos(x(),y()-3);
-    if(y()<230)
+    if(y()<235)
     {
-        score->increase(enemySingletonInstance11.k,enemySingletonInstance22.a);
+        score->increase(enemySingletonInstance11.points,enemySingletonInstance22.points);
         scene()->addItem(score);
 
-        setPos(x(),y()-3);
+
+        setPos(x(),y()-1);
 
     }
     else{
