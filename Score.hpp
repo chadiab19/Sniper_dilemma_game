@@ -1,19 +1,20 @@
 #ifndef SCORE_HPP
 #define SCORE_HPP
 #include <QGraphicsTextItem>
-
+#include <QFont>
+#include <QThread>
 
 
 
 class Score: public QGraphicsTextItem{
 public:
-    Score(QGraphicsItem * parent=0);
-    void increase(int k,int a);
-    //void vider();
-    //int getScore();
-    //int k;
+    static Score& getInstance();
+
+    void updateScore(int k,int a,int numberofperiods);
+
 private:
-    //int score;
+    Score(QGraphicsItem * parent=0);
+
 
 };
 

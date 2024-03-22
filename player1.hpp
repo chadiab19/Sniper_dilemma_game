@@ -1,27 +1,30 @@
 #ifndef PLAYER1_H
 #define PLAYER1_H
 
-//#include <iostream>
+
 #include <QGraphicsRectItem>
-#include "Score.hpp"
+#include <QDebug>
+#include <QKeyEvent>
+#include <QGraphicsScene>
+#include <QTimer>
+#include <QKeyEvent>
+#include <QLabel>
 #include <QThread>
 #include <QObject>
 #include "MyRect.h"
 #include <QCoreApplication>
 #include <QGraphicsTextItem>
-#include <QLabel>
-//#include <iostream>
 
-class Player1:public MyRect,public QThread {
+
+#include "Score.hpp"
+class Player1:public QThread {
 public:
-    //QLabel *scoreLabel;
+
     int points=0;
-    int n;
-    //int a;
-    // Static member function to access the singleton instance
-    //void press();
-    MyRect * player22 = new MyRect();
-    //9void keyPressEvent(QKeyEvent * event) ;
+    int numberOfPeriods;
+
+    MyRect * rectOfPlayer = new MyRect();
+
     static Player1& getInstance();
 
 
@@ -30,18 +33,16 @@ public:
     Score * score;
 
 
-    // Some member function of the singleton class
-    //void doSomething();
+
     void run();
-    // Delete copy constructor and assignment operator
+
     Player1(const Player1&) = delete;
     void operator=(const Player1&) = delete;
 
 private:
-    //QGraphicsTextItem *textField;
-    // Private constructor to prevent instantiation
+
     Player1();
-    // Private destructor to prevent deletion through pointers
+
     ~Player1();
 };
 

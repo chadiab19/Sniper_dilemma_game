@@ -1,42 +1,27 @@
 #include "Score.hpp"
-#include <QFont>
-#include <QThread>
-Score::Score(QGraphicsItem *parent): QGraphicsTextItem(parent){
-    // initialize the score to 0
-    //score = 16;
-    this->setPos(-50,-130);
+Score& Score::getInstance() {
+    static Score instance;
 
-    // draw the text
-    //setPlainText(QString("")); // Score: 0
-    //setDefaultTextColor(Qt::blue);
-    //setFont(QFont("times",16));
+    return instance;
 }
-void Score::increase(int k,int a){
-    //QThread::sleep(3);
+
+Score::Score(QGraphicsItem *parent): QGraphicsTextItem(parent){
+
+    this->setPos(-50,-130);
     setPlainText("                                                         ");
 
+
+}
+void Score::updateScore(int k,int a,int numberofperiods){
+
+
     // draw the new text
-    setPlainText(QString("player1 score ") + QString::number(k)+QString("player2 score ") + QString::number(a));
+    setPlainText(QString("player1 score ") + QString::number(k)+QString("player2 score ") + QString::number(a)+QString("   Time elapsed ") + QString::number(numberofperiods*15)+QString(" seconds"));
     setDefaultTextColor(Qt::blue);
     setFont(QFont("times", 16));
 
-    //score++;
-    //setPlainText(QString("22: ") + QString::number(k)); // Score: 0
 
-
-    //setPlainText(QString(""));
-    //setPlainText(QString("Score: ") + QString::number(k));
-
-    //setDefaultTextColor(Qt::blue);
-    //setFont(QFont("times",16));
 
 }
 
-/*Score::Score(QGraphicsItem *parent): QGraphicsTextItem(parent){
-    score = 0;
 
-    // draw the text
-    setPlainText(QString("Score: ") + QString::number(score)); // Score: 0
-    setDefaultTextColor(Qt::blue);
-    setFont(QFont("times",16));
-}*/

@@ -9,24 +9,24 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    Bullet.cpp \
-    Bulletennemy.cpp \
-    Enemy.cpp \
+    BulleOfPlayer2.cpp \
+    BulletOfPlayer1.cpp \
     MyRect.cpp \
     Player1.cpp \
     Player2.cpp \
     Score.cpp \
     Target.cpp \
+    currentPlayer.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
-    Bullet.h \
-    Bulletennemy.h \
-    Enemy.h \
+    BulletOfPlayer1.h \
+    BulletOfplayer2.h \
     MyRect.h \
     Score.hpp \
     Target.h \
+    currentPlayer.hpp \
     mainwindow.h \
     player1.hpp \
     player2.hpp

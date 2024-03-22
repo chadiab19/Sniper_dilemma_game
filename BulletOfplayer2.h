@@ -1,17 +1,19 @@
-#ifndef BULLETENNEMY_H
-#define BULLETENNEMY_H
+#ifndef BULLETOFPLAYER2H_H
+#define BULLETOFPLAYER2H_H
 #include <QGraphicsRectItem>
 #include <QObject>
+#include <QTimer>
+#include <QGraphicsScene>
 #include "Score.hpp"
-
-class Bulletennemy: public QObject,public QGraphicsRectItem{
+#include "BulletOfPlayer1.h"
+class BulleOfPlayer2: public BulletOfPlayer1{
     Q_OBJECT
 public:
-    Bulletennemy();
-    Score * score;
+    BulleOfPlayer2();
+
 public slots:
-    void move();
+    void move() override;
 };
 
 
-#endif // BULLETENNEMY_H
+#endif // BULLETOFPLAYER2H_H

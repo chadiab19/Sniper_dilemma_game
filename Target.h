@@ -2,12 +2,14 @@
 #define TARGET_H
 #include <QGraphicsRectItem>
 #include <QObject>
-
+#include <QTimer>
+#include <QDebug>
+#include <QGraphicsScene>
 class Target: public QObject,public QGraphicsRectItem{
     Q_OBJECT
 public:
     static Target& getInstance();
-    Bulletoffield(const Target&) = delete;
+    Target(const Target&) = delete;
     void operator=(const Target&) = delete;
     bool is_right=true;
 private:
@@ -15,7 +17,6 @@ private:
     ~Target();
 
 public slots:
-    //Bulletoffield();
-    //void move();
+
 };
 #endif // TARGET_H
