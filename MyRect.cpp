@@ -17,10 +17,13 @@ void MyRect::move(){
 }
 void MyRect::keyPressEvent(QKeyEvent *event){
 
+
+    // set the current position based on the player who get the focus
     currenttPlayer& currentPosition = currenttPlayer::getInstance();
     currentPosition.updatecurrentPlayer(is_player2);
-
     scene()->addItem(&currentPosition);
+
+    // move the rectagles of player1 and player 2 based on the pressed button and the player who get the focus
     if ((event->key() == Qt::Key_Left) && (is_player2 == false)){
         if (pos().x() > 0)
             setPos(x()-25,y());
