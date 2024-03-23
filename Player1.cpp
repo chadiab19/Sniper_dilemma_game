@@ -31,6 +31,19 @@ void Player1::run(){
 
     if(numberOfPeriods==5){
         qDebug()<<"stopped";
+        if(this->points< player2instance.points){
+            qDebug()<<"player 2 wins"<<player2instance.points;
+
+        }
+        else if(this->points> player2instance.points){
+            qDebug()<<"playe1 1 wins"<<this->points;
+
+        }
+        else{
+            qDebug()<<"draw";
+
+        }
+
         QCoreApplication::exit();
     }
 
