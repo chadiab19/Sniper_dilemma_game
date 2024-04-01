@@ -42,6 +42,7 @@ void MyRect::initialrectangle(int playernumber){
 void MyRect::keyPressEvent(QKeyEvent *event){
 
 
+<<<<<<< HEAD
     QPixmap imageplayer1("C:/Users/21696/Downloads/Capture-player1-removebg-preview.png");
     QPixmap image("C:/Users/21696/Downloads/Capture.png");
     QPixmap image2("C:/Users/21696/Downloads/Capture25.PNG");
@@ -64,6 +65,15 @@ void MyRect::keyPressEvent(QKeyEvent *event){
 
     // move the rectagles of player1 and player 2 based on the pressed button and the player who get the focus
     else if ((event->key() == Qt::Key_Left) && (is_player2 == false)){
+=======
+    // set the current position based on the player who get the focus
+    currenttPlayer& currentPosition = currenttPlayer::getInstance();
+    currentPosition.updatecurrentPlayer(is_player2);
+    scene()->addItem(&currentPosition);
+
+    // move the rectagles of player1 and player 2 based on the pressed button and the player who get the focus
+    if ((event->key() == Qt::Key_Left) && (is_player2 == false)){
+>>>>>>> 6b4070fcef97917ddb1e0cd9995a224d9b973ffb
         if (pos().x() > 0)
             //setPos(x()-25,y());
             if(fireplayer1!=0){

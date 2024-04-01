@@ -1,7 +1,10 @@
 #include "player1.hpp"
 #include "player2.hpp"
+<<<<<<< HEAD
 #include <QGraphicsDropShadowEffect>
 #include "currentPlayer.hpp"
+=======
+>>>>>>> 6b4070fcef97917ddb1e0cd9995a224d9b973ffb
 
 // Initialize the static instance of Player1
 Player1& Player1::getInstance() {
@@ -13,7 +16,10 @@ Player1& Player1::getInstance() {
 
 void Player1::run(){
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6b4070fcef97917ddb1e0cd9995a224d9b973ffb
     // Get the instance of Player2 singleton
     Player2& player2instance = Player2::getInstance();
     // Make the rectangle of Player2 focusable
@@ -26,6 +32,7 @@ void Player1::run(){
     this->rectOfPlayer->is_player2=false;
     //variable that we use to count the time of the game
     numberOfPeriods++;
+<<<<<<< HEAD
 
     // give 15 seconds to player 2 to play its turn
     QThread::sleep(15);
@@ -38,11 +45,22 @@ void Player1::run(){
         qDebug()<<"stopped";
         if(this->points< player2instance.points){
             player2instance.rectOfPlayer2->is_finished=2;
+=======
+    // give 15 seconds to player 2 to play its turn
+    QThread::sleep(15);
+    // Check if the game time had been reached
+    if(numberOfPeriods==5){
+        qDebug()<<"stopped";
+        if(this->points< player2instance.points){
+>>>>>>> 6b4070fcef97917ddb1e0cd9995a224d9b973ffb
             qDebug()<<"player 2 wins";
 
         }
         else if(this->points> player2instance.points){
+<<<<<<< HEAD
             player2instance.rectOfPlayer2->is_finished=1;
+=======
+>>>>>>> 6b4070fcef97917ddb1e0cd9995a224d9b973ffb
             qDebug()<<"playe1 1 wins";
 
         }
