@@ -5,14 +5,15 @@
 #include <QGraphicsView>
 #include <QTimer>
 #include <QThread>
+#include <QGraphicsPixmapItem>
 #include "player1.hpp"
 #include "player2.hpp"
 #include "target.h"
 
-
-
 int main(int argc, char *argv[]){
+
     QApplication a(argc, argv);
+    //QPixmap image("C:/Users/21696/Downloads/Capture22.PNG");
 
     // crete instances of player1,player 2,the target and the the current player
     Player1& player1 = Player1::getInstance();
@@ -28,14 +29,21 @@ int main(int argc, char *argv[]){
 
     QGraphicsScene * scene = new QGraphicsScene();
 
+    scene->setBackgroundBrush(QBrush(QPixmap("C:/Users/21696/Downloads/backgroundv1.png")));
+
     // add player 1 and player 2 and the traget to the game scene
     scene->addItem(&target);
     scene->addItem(player1.rectOfPlayer);
     scene->addItem(player2.rectOfPlayer2);
+    player1.rectOfPlayer->initialrectangle(1);
+    player2.rectOfPlayer2->initialrectangle(2);
+
     scene->addItem(&currentPlayer);
+    //scene->addPixmap(image);
 
     // start player 1 thread which gives focus to player 2 retangle
     player1.start();
+
 
 
     /* Create a QGraphicsView with specified scene, configure properties,
@@ -46,6 +54,7 @@ int main(int argc, char *argv[]){
     view->show();
     view->setFixedSize(1400,1000);
     scene->setSceneRect(10,10,1100,700);
+
 
 
 

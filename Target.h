@@ -8,6 +8,7 @@
 class Target: public QObject,public QGraphicsRectItem{
     Q_OBJECT
 public:
+
     static Target& getInstance();
     Target(const Target&) = delete;
     void operator=(const Target&) = delete;

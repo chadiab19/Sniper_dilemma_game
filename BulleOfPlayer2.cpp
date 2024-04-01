@@ -1,6 +1,5 @@
 #include "BulletOfplayer2.h"
 #include "Target.h"
-//#include "Enemy.h"
 #include "player2.hpp"
 #include "player1.hpp"
 #include "BulletOfPlayer1.h"
@@ -9,13 +8,9 @@
 
 BulleOfPlayer2::BulleOfPlayer2(){
     // drew the rect
-
-
-
     setRect(x(),y()+100,10,50);
-
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
-
+    //start a timer to move the bullet of player 2
     timer->start(50);
 
 
@@ -24,7 +19,7 @@ BulleOfPlayer2::BulleOfPlayer2(){
 void BulleOfPlayer2::move() {
 
     QList<QGraphicsItem *> colliding_items = collidingItems();
-
+    //case if bullet of player 2 collide with other items
     for(int i=0,n=colliding_items.size();i< n;++i){
         if(typeid(*(colliding_items[i]))==typeid(BulletOfPlayer1)){
             scene()->removeItem(colliding_items[i]);
@@ -56,9 +51,10 @@ void BulleOfPlayer2::move() {
 
     }
 
-
+    // call the function that updates the value the target position
     updateTargetSense();
     // move bullet down
+    // if the target not reach the spped of the bullet of player 2 slow down
     if(y()>255)
     {
 
@@ -76,12 +72,12 @@ void BulleOfPlayer2::move() {
 
     }
 
-
+    // update the score value on the sceen
     score22.updateScore(player1.points,player2.points,player1.numberOfPeriods);
 
     scene()->addItem(&score22);
 
-
+    // if the bullet attain the border of the game scene it will be deleted
     if (pos().y() > 540){
 
 

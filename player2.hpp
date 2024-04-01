@@ -4,7 +4,7 @@
 #include <QThread>
 #include <QObject>
 #include <QDebug>
-
+#include <QBrush>
 #include <QGraphicsScene>
 #include <QTimer>
 #include <QKeyEvent>

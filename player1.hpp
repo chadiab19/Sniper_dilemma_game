@@ -1,7 +1,7 @@
 #ifndef PLAYER1_H
 #define PLAYER1_H
-
-
+#include <QGraphicsScene>
+#include <QBrush>
 #include <QGraphicsRectItem>
 #include <QDebug>
 #include <QKeyEvent>
@@ -19,7 +19,9 @@
 #include "Score.hpp"
 class Player1:public QThread {
 public:
-
+    QTimer * timer = new QTimer();
+    //extern std::condition_variable cv;
+    //extern bool condition;
     int points=0;
     int numberOfPeriods;
 
@@ -28,7 +30,7 @@ public:
     static Player1& getInstance();
 
 
-
+    QGraphicsScene * scene = new QGraphicsScene();
 
     Score * score;
 
